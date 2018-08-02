@@ -14,3 +14,8 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_loadSettings = 1
 " Use an absolute configuration path if you want system-wide settings
 let g:LanguageClient_settingsPath = s:cwd_path.'/settings.json'
+
+" Setup the deoplete
+call deoplete#custom#source('LanguageClient',
+            \ 'min_pattern_length',
+            \ 2)

@@ -67,7 +67,9 @@ if dein#load_state(s:dein_path)
   " Fast jump when press <leader><leader>
   call dein#add('easymotion/vim-easymotion')
   " Multiple cursors support when press <C-n>
-  call dein#add('terryma/vim-multiple-cursors')
+  call dein#add('terryma/vim-multiple-cursors', {
+              \ 'hook_add': 'source '.s:plugin_config_path.'/vim-multiple-cursors/config.vim'
+              \ })
   " More powerful search
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('haya14busa/incsearch-fuzzy.vim')
@@ -133,6 +135,17 @@ if dein#load_state(s:dein_path)
               \ 'on_ft': 'cpp'
               \ })
 
+  " Golang support
+  call dein#add('fatih/vim-go', {
+              \ 'on_ft': 'go',
+              \ 'build': ':GoUpdateBinaries',
+              \ 'hook_add': 'source '.s:plugin_config_path.'/vim-go/config.vim'
+              \ })
+  call dein#add('zchee/deoplete-go', {
+			  \ 'build': 'make',
+              \ 'hook_add': 'source '.s:plugin_config_path.'/deoplete-go/config.vim'
+			  \ })
+
   " Better status line
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('vim-airline/vim-airline', {
@@ -141,7 +154,6 @@ if dein#load_state(s:dein_path)
 
   " auto complete
   call dein#add('Shougo/deoplete.nvim', {
-              \ 'do': ':UpdateRemotePlugins',
               \ 'hook_add': 'source '.s:plugin_config_path.'/deoplete.nvim/config.vim'
               \ })
   if !has('nvim')
