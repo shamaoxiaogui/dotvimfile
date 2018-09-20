@@ -7,11 +7,11 @@ if [ ! -d ${DEIN_PATH} ]; then
     mkdir -p ${DEIN_PATH}
 fi
 echo "Installing dein.vim..."
-curl -s https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
 sh /tmp/installer.sh ${DEIN_PATH} >/dev/null
 echo "Install dein success!"
 
 echo "Installing Plugins..."
-${START_UP_SCRIPT} +"call dein#install()" +qall
+${START_UP_SCRIPT} --headless +"call dein#install()" +qall
 echo "Install Plugins success"
 
