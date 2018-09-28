@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 set -e
 case "$OSTYPE" in
   #solaris*) echo "SOLARIS" ;;
